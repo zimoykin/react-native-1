@@ -1,3 +1,5 @@
+import { BlogModel } from "./BlogModel";
+
 export interface Place {
     title: string,
     description: string,
@@ -12,3 +14,11 @@ export interface Country {
     description: string,
     id: string
 }
+
+export interface PlaceFull {
+    id: string,
+    title: string ,
+    description: string,
+    country: Country,
+    blogs: [BlogModel]
+  }

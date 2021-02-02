@@ -21,9 +21,8 @@ export const NavBar = () => {
           style={styles.navItem}
           component={TouchableOpacity}
           activeOpacity={0.8}
-          text="Location"
         >
-          <Text> LOCATION </Text>
+          <Text> PLACES </Text>
         </Link>
         <Link
           to="/new"
@@ -61,13 +60,11 @@ const styles = StyleSheet.create({
   },
   nav: {
     flexDirection: "row",
-    justifyContent: "space-around",
-    backgroundColor: "gray",
+    justifyContent: "space-around"
   },
   navItem: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "lemonchiffon",
     opacity: 0.5,
     padding: 10,
     justifyContent: "center",

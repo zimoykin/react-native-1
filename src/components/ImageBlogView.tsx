@@ -53,8 +53,6 @@ export const ImageViewBlog = (props: { blog: BlogModel, isFull: boolean }): JSX.
       </View>
     );
   };
-
-
    
   return (
     <View>
@@ -65,7 +63,7 @@ export const ImageViewBlog = (props: { blog: BlogModel, isFull: boolean }): JSX.
       
           <Link
             style={styles.location}
-            to={"/location"}
+            to={`/location/${props.blog.place.id}`}
             component={ TouchableOpacity }
           >
               <Text>{ props.blog.place.title + ', ' + props.blog.place.country.title}</Text>

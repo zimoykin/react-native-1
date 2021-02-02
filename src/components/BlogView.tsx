@@ -9,7 +9,7 @@ import { Link } from "react-router-native";
 import { TagsView } from "./TagsView";
 import { TitleView } from "./TitleView";
 import { ImageViewBlog } from "./ImageBlogView";
-import { ButtonText } from './../Model/LinkButton'
+import { LoaderView } from "./LoaderView";
 
 
 export const BlogView = (props: { id: string }) => {  
@@ -38,8 +38,8 @@ export const BlogView = (props: { id: string }) => {
     return (
         
         <View>
-            { blog != undefined ? <TitleView blog={blog}/> : null }
-            { blog != undefined ? <ImageViewBlog blog={blog} isFull={false} /> : null }
+            { blog != undefined ? <TitleView blog={blog}/> : <LoaderView/> }
+            { blog != undefined ? <ImageViewBlog blog={blog} isFull={false} /> : <LoaderView/> }
 
              <Text style={styles.description}>
                 {blog?.description.substring(0, 550) + '...'}

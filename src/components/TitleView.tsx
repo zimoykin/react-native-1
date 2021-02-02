@@ -2,7 +2,6 @@ import { Dimensions, Text, View, StyleSheet, Image, TouchableOpacity, TouchableO
 import React from 'react';
 import { BlogModel } from "../Model/BlogModel";
 import { Link } from "react-router-native";
-import { ButtonText } from './../Model/LinkButton'
 
 
 export const TitleView = (props: { blog: BlogModel }): JSX.Element => {
@@ -18,9 +17,10 @@ export const TitleView = (props: { blog: BlogModel }): JSX.Element => {
     <View style={styles.leftPart}>
     <Link
         to={`/blog/${props.blog.id}`}
-        component={ButtonText}
-        text={props.blog.title}
-      />
+        component={ TouchableOpacity }
+      >
+       <Text> {props.blog.title} </Text> 
+      </Link>
       
       <Text style={styles.subTitle} >
         { props.blog.user.username}        
@@ -35,12 +35,10 @@ export const TitleView = (props: { blog: BlogModel }): JSX.Element => {
 
       image: {
         width: Dimensions.get("screen").width / 12,
-        height: Dimensions.get("screen").width / 12,
-        backgroundColor: 'white',
-  
+        height: Dimensions.get("screen").width / 12,  
         borderColor: "red",
         borderWidth: 2,
-        borderStyle: 'solid',
+       
         borderRadius: (Dimensions.get("screen").width / 12) / 2
       },
       main: {
@@ -52,13 +50,9 @@ export const TitleView = (props: { blog: BlogModel }): JSX.Element => {
           backgroundColor: 'white'
       },
       title: {
-        
-        //height: (Dimensions.get("screen").width / 12),
         fontSize: 14,
         fontWeight: '200',
         color:'black',
- 
-       // paddingTop: Platform.OS == 'ios' ? 10 : 0,
         backgroundColor: 'white',
         paddingLeft: 5
       },

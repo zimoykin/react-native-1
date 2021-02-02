@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-native";
 
 import {
   StyleSheet,
@@ -24,19 +23,17 @@ export default class App extends React.Component {
     return (
      
         <Router initialEntries={["/auth"]} initialIndex={0}>
-          <BackButton />
-          <AndroidBackButton>
             <SafeAreaView style={styles.container}> 
             <NavBar/>          
               <Route exact path="/" component={Home} />
               <Route path="/new" component={New} />
               <Route path="/contacts" component={Contacts} />
-              <Route path="/location" component={LocationPage} />
+              <Route path="/location/:id" component={LocationPage} />
               <Route path="/auth" component={Auth} /> 
               <Route path="/blog/:id" component={BlogPage} /> 
               <Route path="/tag/:tag" component={TagPage} /> 
             </SafeAreaView>
-          </AndroidBackButton>
+
         </Router>
 
     );
@@ -46,7 +43,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "lightgray",
+    backgroundColor: "white",
     paddingTop: Platform.OS === 'android' ? 25 : 0,
     paddingBottom:  Platform.OS === 'android' ? 25 : 0
   }

@@ -5,6 +5,8 @@ import { AuthorizationView } from "./AuthorizationView";
 import { HomeView } from "./HomeView";
 import { BlogViewFull } from './BlogViewFull';
 import { TagView } from './TagView'
+import { LocationView } from './LocationView'
+import { NewView } from "./NewView";
 
 export const Home = () => {
     
@@ -13,18 +15,14 @@ export const Home = () => {
     );
   };
   
-  export const LocationPage = () => {
+  export const LocationPage = ({ match }: RouteComponentProps<RouteInfo>) =>  {
     return (
-      <SafeAreaView style={styles.page}>
-         <Text> LocationPage </Text>
-      </SafeAreaView>
+      <LocationView id={match.params.id}/>
    );
   };
   export const New = () => {
     return (
-      <SafeAreaView style={styles.page}>
-         <Text> New </Text>
-      </SafeAreaView>
+      <NewView/>
    );
   };
   export const Contacts = () => {

@@ -36,9 +36,12 @@ export class Http {
 
               } else {
                 let auth = new Auth();
+                console.log('refresh token')
                 auth.refresh().then( (val) => {
                   this.accessToken = val
-                    this.get(path, params)
+                    this.get <T> (path, params).then ( (values) => {
+                      resolve(values)
+                    })
                 });
               }
             })

@@ -5,6 +5,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Page } from "../Model/Pagination";
 import { BlogModel } from "../Model/BlogModel";
 import { BlogView } from "./BlogView";
+import { LoaderView } from "./LoaderView";
 
 
 export const HomeView = () : JSX.Element => { 
@@ -29,7 +30,6 @@ export const HomeView = () : JSX.Element => {
                 })
             }
         })
-
     }, [page])
 
     const renderItem = ({ item }: { item: string }) => (
@@ -39,16 +39,21 @@ export const HomeView = () : JSX.Element => {
     return (
 
         <View>
+            { blogs != undefined 
+            ?
             <FlatList<any>
-                data = { blogs!=undefined ? blogs : null }
-                scrollEnabled
+            data = { blogs }
+            scrollEnabled
 
-                keyExtractor={(item, index) => {
-                    return  index.toString();
-                   }}
+            keyExtractor={(item, index) => {
+                return  index.toString();
+               }}
 
-                renderItem={ renderItem }
+            renderItem={ renderItem }
             />
+            : 
+            <LoaderView/>
+            }
         </View>
 
     );

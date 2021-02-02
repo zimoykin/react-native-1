@@ -3,19 +3,14 @@ import {
   Text,
   View,
   StyleSheet,
-  Image,
-  TouchableOpacity,
-  TouchableOpacityProps,
   ScrollView,
 } from "react-native";
 
 import React, { useEffect, useState } from "react";
 import { Http, QueryParams } from "../_service/NetworkManager";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Page } from "../Model/Pagination";
 import { BlogModel } from "../Model/BlogModel";
 import { EmotionView } from "./EmotionView";
-import { Link } from "react-router-native";
 import { TagsView } from "./TagsView";
 import { TitleView } from "./TitleView";
 import { ImageViewBlog } from "./ImageBlogView";
